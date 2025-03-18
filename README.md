@@ -1,6 +1,6 @@
 # Faba uploader
 
-Descrizione breve del progetto, cosa fa e cosa risolve.
+Script python per la gestione delle playlist dei faba-me
 
 ## Prerequisiti
 
