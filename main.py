@@ -71,28 +71,7 @@ def upload_audio(contentid: int, file_path: str, token: str) -> bool:
 
     print(f"Upload completed successfully.")
     return True
-
-def getStatus(uuid: str, token) -> Optional[dict]:
-    url = "https://faba-api-production.thingscloud.it/api/faba/status"
-    if uuid is not None:
-        url = f"https://faba-api-production.thingscloud.it/api/faba/status/{uuid}?skipBoxShow=0"
-
-    headers = {
-        "Accept": "application/json, text/plain, */*",
-        "X-Platform": "ios",
-        "X-Faba-Auth": constants.X_FABA_AUTH,
-        "User-Agent": "MyFaba/42 CFNetwork/1404.0.5 Darwin/22.3.0",
-        "Connection": "keep-alive",
-        "Authorization": f"Bearer {token}",
-    }
-    response = requests.get(url, headers=headers)
-
-    if response.status_code == 200:
-        data = response.json()
-        return data
-    else:
-        print(f"Request failed with status code: {response.status_code}")
-        return None
+    
 
 def getCharacterContents(onlyFabaMe, token) -> Optional[dict]:
     filter_contents = "true" if onlyFabaMe else "false"
